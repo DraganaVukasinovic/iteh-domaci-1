@@ -26,11 +26,14 @@
      
 
         <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand">Nakit</a>
+           
+            <a class="navbar-brand" href="dodajNoviNakit.php" style="color:black;text-decoration: none;float:left"><strong>Dodaj novi nakit</strong> </a>
+
             <form class="form-inline">
-                <a class="navbar-brand" href="odjava.php">Odjavi se</a>
+               
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <a class="navbar-brand" href="odjava.php">Odjavi se</a>
             </form>
         </nav>
 

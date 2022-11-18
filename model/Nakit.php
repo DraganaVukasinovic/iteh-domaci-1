@@ -42,6 +42,10 @@
             
             return $conn->query($upit);
         }
+        public static function obrisinakit($id, $conn){
+            $upit = " delete from nakit where idNakita=$id";
+            return $conn->query($upit);
+        }
     }
 
  
