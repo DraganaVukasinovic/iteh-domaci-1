@@ -60,6 +60,13 @@
             margin-top: 10%;
             justify-content: space-between;
         }
+        .kategorija {
+            height: 25px;
+            width: 100px;
+            background-color: #9E9DAD;
+            border-radius: 10px;
+            display: inline-block;
+        }
     </style>
 
 
@@ -83,6 +90,7 @@
                 <div class="card">
                     <img src=<?php echo $red["slika"]?>  style="width:100%">
                     <h5> <?php echo $red["naziv"]?>  </h5>
+                    <span class="kategorija"> <?php echo $red["nazivKategorije"]?></span>
                     <p class="price"> <?php echo $red["cena"]?></p>
                     <p>  <?php echo $red["opis"]?></p>
                      
