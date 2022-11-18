@@ -1,3 +1,15 @@
+<?php
+    include 'config.php'; //moramo zbog $conn
+    include 'model/Nakit.php'; //moramo zbog klase Nakit
+     
+    //da bismo mogli da prikazemo sav nakit u tabeli moramo da prvo procitamo sve podatke o svom nakitu iz baze
+    $savNakit = Nakit::vratiSavnakit($conn); //rezultat ovog upita cemo prikazati u tabeli dole
+  
+    
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +18,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            padding: 10px;
+        }
+
+        .price {
+            color: grey;
+            font-size: 22px;
+        }
+
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .card button:hover {
+             opacity: 0.7;
+        }
+        .sav-nakit{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+            
+            margin-left: 9%;
+            margin-right:9%;
+            margin-top: 10%;
+            justify-content: space-between;
+        }
+    </style>
+
+
+
 </head>
-<body>
+<body style="   background-image: url('https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGpld2VsbGVyeSUyMGJhY2tncm91bmR8ZW58MHx8MHx8&w=1000&q=80');    background-repeat: no-repeat;   background-attachment: fixed;  background-size: cover;"> 
      
 
         <nav class="navbar navbar-light bg-light justify-content-between">
@@ -19,7 +77,19 @@
             </form>
         </nav>
 
+        <div class="sav-nakit">
 
+            <?php   while($red = $savNakit->fetch_array()):  ?>
+                <div class="card">
+                    <img src=<?php echo $red["slika"]?>  style="width:100%">
+                    <h5> <?php echo $red["naziv"]?>  </h5>
+                    <p class="price"> <?php echo $red["cena"]?></p>
+                    <p>  <?php echo $red["opis"]?></p>
+                     
+                </div>
+
+            <?php endwhile;?>
+        </div>
 
 
 
