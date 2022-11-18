@@ -26,7 +26,7 @@
      
 
         <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand">Navbar</a>
+            <a class="navbar-brand">Nakit</a>
             <form class="form-inline">
                 <a class="navbar-brand" href="odjava.php">Odjavi se</a>
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

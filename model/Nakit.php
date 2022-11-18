@@ -37,6 +37,11 @@
             $upit = "select * from nakit  n inner join kategorija k on k.idKategorije=n.kategorija order by n.cena desc";
             return $conn->query($upit);
         }
+        public static function dodajNakit($nakit, $conn){
+            $upit = "insert into nakit(naziv,opis,cena,slika,kategorija) values('$nakit->naziv','$nakit->opis',$nakit->cena,'$nakit->slika',$nakit->kategorija)";
+            
+            return $conn->query($upit);
+        }
     }
 
  

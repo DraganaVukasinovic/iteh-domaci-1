@@ -8,7 +8,10 @@
             $this->nazivKategorije=$nazivKategorije; 
         }
        
-
+        public static function vratiSveKategorije($conn){
+            $upit = "select * from kategorija";
+            return $conn->query($upit);
+        }
     }
     
  
