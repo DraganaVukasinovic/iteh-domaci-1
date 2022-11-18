@@ -31,8 +31,8 @@
 
             <form class="form-inline">
                
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input class="form-control mr-sm-2" type="search"  id = "form1" placeholder="Search" aria-label="Search" onkeyup="pretraga(document.getElementById('form1').value)" >
+             
                 <a class="navbar-brand" href="odjava.php">Odjavi se</a>
             </form>
         </nav>
@@ -79,7 +79,27 @@
 
         }
 
+        function pretraga(){
+            var input, radios, radio_filter, text_filter, td0, i, divList;
 
+            input = document.getElementById("form1");
+            text_filter = input.value.toUpperCase();
+            divList = $(".card");
+            console.log(divList);
+
+            for (i = 0; i < divList.length; i++) {
+                console.log(divList[i]);
+                td0 = divList[i].getElementsByTagName("h5")[0].innerHTML;
+                console.log(td0);
+                if (td0) {
+                if (td0.toUpperCase().indexOf(text_filter) > -1) {
+                    divList[i].style.display = "";
+                } else {
+                    divList[i].style.display = "none";
+                }
+                } 
+            }
+        }
 
 
     </script>
